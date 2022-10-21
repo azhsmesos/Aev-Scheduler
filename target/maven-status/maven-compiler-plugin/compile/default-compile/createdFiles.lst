@@ -1,7 +1,16 @@
 com/github/transfer/client/ConnectManager$2.class
-com/github/transfer/core/Bootstarter.class
+com/github/transfer/codec/Serialization.class
+com/github/transfer/codec/Encoder.class
+com/github/transfer/server/Server$2.class
+com/github/transfer/codec/Response.class
 com/github/transfer/client/ConnectManager$1.class
 com/github/transfer/client/ClientInitializer.class
 com/github/transfer/client/ConnectManager$ConnectManagerEnum.class
 com/github/transfer/client/ClientHandler.class
+com/github/transfer/codec/Decoder.class
 com/github/transfer/client/ConnectManager.class
+com/github/transfer/client/Client.class
+com/github/transfer/server/ServerHandler.class
+com/github/transfer/server/Server.class
+com/github/transfer/codec/Request.class
+com/github/transfer/server/Server$1.class

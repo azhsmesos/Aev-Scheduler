@@ -1,5 +1,6 @@
 package com.github.transfer.client;
 
+import com.github.transfer.codec.Response;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;
@@ -11,7 +12,7 @@ import java.net.SocketAddress;
  * @author zhaozhenhang <zhaozhenhang@kuaishou.com>
  * Created on 2022-10-19
  */
-public class ClientHandler extends SimpleChannelInboundHandler<Object> {
+public class ClientHandler extends SimpleChannelInboundHandler<Response> {
 
     private Channel channel;
 
@@ -31,7 +32,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Object> {
     }
 
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Object o) throws Exception {
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, Response resp) throws Exception {
 
     }
 

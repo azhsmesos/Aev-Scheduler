@@ -169,13 +169,11 @@ public class ConnectManager {
                     public void operationComplete(ChannelFuture channelFuture) throws Exception {
                         log.info("future channel close operationComplete, address: "
                                 + ((InetSocketAddress) address).getHostName());
-                        future.channel()
-                                .eventLoop()
-                                .schedule(() -> {
-                                    log.warn("connected fail to reconnected!!!");
-                                    clearConnected();
-                                    connect(b, address);
-                                }, 3, TimeUnit.SECONDS);
+                        future.channel().eventLoop().schedule(() -> {
+                            log.warn("connected fail to reconnected!!!");
+                            clearConnected();
+                            connect(b, address);
+                        }, 3, TimeUnit.SECONDS);
                     }
                 });
 
