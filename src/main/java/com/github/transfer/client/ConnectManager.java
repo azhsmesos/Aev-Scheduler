@@ -191,7 +191,7 @@ public class ConnectManager {
 
     private void addHandler(ClientHandler handler) {
         connectedhandlerList.add(handler);
-        SocketAddress address = handler.getAddress();
+        SocketAddress address = handler.getChannel().remoteAddress();
         connectedHandlerMap.put(address, handler);
         signalAvailableHandler();
     }

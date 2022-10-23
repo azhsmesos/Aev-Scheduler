@@ -16,9 +16,11 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import javax.net.ssl.HostnameVerifier;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -28,15 +30,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Server {
 
-    private String serverAddress;
+    private final String serverAddress;
 
     // 接收链接
-    private EventLoopGroup bossGroup = new NioEventLoopGroup();
+    private final EventLoopGroup bossGroup = new NioEventLoopGroup();
 
     // 具体处理逻辑
-    private EventLoopGroup workerGroup = new NioEventLoopGroup();
+    private final EventLoopGroup workerGroup = new NioEventLoopGroup();
 
-    private volatile Map<String, Object> handlerMap = new HashMap<>();
+    private final Map<String, Object> handlerMap = new HashMap<>();
 
     public Server(String serverAddress) throws InterruptedException {
         this.serverAddress = serverAddress;
@@ -62,6 +64,7 @@ public class Server {
         String[] array = this.serverAddress.split(":");
         String host = array[0];
         int port = Integer.parseInt(array[1]);
+
         ChannelFuture future = strap.bind(host, port).sync();
         future.addListener(new ChannelFutureListener() {
             @Override
@@ -79,6 +82,7 @@ public class Server {
         future.await(5000, TimeUnit.MILLISECONDS);
         if (future.isSuccess()) {
             // bind success
+            log.info("starter success");
         }
 
     }

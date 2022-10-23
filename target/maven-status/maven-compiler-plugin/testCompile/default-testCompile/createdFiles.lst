@@ -1,0 +1,6 @@
+com/github/transfer/Client.class
+com/github/transfer/consumer/ConsumerStarter.class
+com/github/transfer/provider/HelloServiceImpl.class
+com/github/transfer/provider/ProviderStarter.class
+com/github/transfer/consumer/HelloService.class
+com/github/transfer/consumer/User.class

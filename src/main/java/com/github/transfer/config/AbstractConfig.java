@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public abstract class AbstractConfig {
 
-    private AtomicInteger generator = new AtomicInteger(0);
+    private final AtomicInteger generator = new AtomicInteger(0);
     protected String id;
     protected String interfaceClass = null;
     protected Class<?> proxyClass = null;
